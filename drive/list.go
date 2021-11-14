@@ -20,7 +20,7 @@ type ListFilesArgs struct {
 	AbsPath     bool
 }
 
-func (self *Drive) List(args ListFilesArgs) (err error) {
+fun (self *Drive) List(args ListFilesArgs) (err error) {
 	listArgs := listAllFilesArgs{
 		query:     args.Query,
 		fields:    []googleapi.Field{"nextPageToken", "files(id,name,md5Checksum,mimeType,size,createdTime,parents)"},
