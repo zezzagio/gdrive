@@ -20,7 +20,7 @@ type ListFilesArgs struct {
 	AbsPath     bool
 }
 
-fuffffunc (self *Drive) List(args ListFilesArgs) (err error) {
+func (self *Drive) List(args ListFilesArgs) (err error) {
 	listArgs := listAllFilesArgs{
 		query:     args.Query,
 		fields:    []googleapi.Field{"nextPageToken", "files(id,name,md5Checksum,mimeType,size,createdTime,parents)"},
@@ -62,6 +62,8 @@ type listAllFilesArgs struct {
 	fields    []googleapi.Field
 	sortOrder string
 	maxFiles  int64
+    supportsAllDrives bool
+    includeItemsFromAllDrives bool
 }
 
 func (self *Drive) listAllFiles(args listAllFilesArgs) ([]*drive.File, error) {
